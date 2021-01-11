@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:healthmonitor/MedicineMonitor/Categories.dart';
 import 'package:healthmonitor/MedicineMonitor/Medicine.dart';
 
 void main() {
@@ -46,7 +47,7 @@ class HomeApp extends StatelessWidget {
         ),
         body: Container(
             child: Column(
-          children: [Medicine()],
+          children: [Categories()],
         )));
   }
 }

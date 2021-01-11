@@ -8,7 +8,6 @@ class Category {
     mapping['id'] = id;
     mapping['name'] = name;
     mapping['description'] = description;
-
     return mapping;
   }
 }
