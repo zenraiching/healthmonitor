@@ -13,6 +13,28 @@ class _CategoriesState extends State<Categories> {
   var _editDescription = TextEditingController();
   var categoryModel = CategoryModel();
   var categoryService = CategoryService();
+  List<CategoryModel> _categoryList = List<CategoryModel>();
+
+  @override
+  void initState() {
+    super.initState();
+    getAllCategories();
+  }
+
+  getAllCategories() async {
+    _categoryList = List<CategoryModel>();
+    var categories = await categoryService.readCategories();
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = CategoryModel();
+        categoryModel.name = category['name'];
+        categoryModel.description = category['description'];
+        categoryModel.id = category['id'];
+        _categoryList.add(categoryModel);
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
