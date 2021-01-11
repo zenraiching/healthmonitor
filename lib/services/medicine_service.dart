@@ -6,7 +6,6 @@ class CategoryService {
 
   CategoryService() {
     _repository = Repository();
-    _repository.
   }
 
   // Create data

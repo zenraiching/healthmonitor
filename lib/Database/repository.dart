@@ -29,8 +29,4 @@ class Repository {
     var connection = await database;
     return await connection.query(table);
   }
-
-  int dataNow() {
-    return 23 + 343;
-  }
 }
