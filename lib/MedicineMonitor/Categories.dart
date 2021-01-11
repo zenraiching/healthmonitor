@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:healthmonitor/MedicineMonitor/List.dart';
+import 'package:healthmonitor/models/CategoryModel.dart';
+import 'package:healthmonitor/services/category_service.dart';
 
 class Categories extends StatefulWidget {
   @override
@@ -6,68 +9,42 @@ class Categories extends StatefulWidget {
 }
 
 class _CategoriesState extends State<Categories> {
-  String dropdownValue = 'One';
+  var _editMedicineName = TextEditingController();
+  var _editDescription = TextEditingController();
+  var categoryModel = CategoryModel();
+  var categoryService = CategoryService();
   @override
   Widget build(BuildContext context) {
     return Container(
         padding: EdgeInsets.symmetric(horizontal: 30, vertical: 30),
         child: Column(
           children: [
-            Row(
-              children: [
-                Text(
-                  "Add New Medicine",
-                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.w900),
-                )
-              ],
-            ),
             TextFormField(
               decoration: InputDecoration(labelText: "Medicine Name"),
             ),
             TextFormField(
-              decoration: InputDecoration(labelText: "Doage in mg"),
+              decoration: InputDecoration(labelText: "Medicine Description"),
             ),
-            Row(
-              children: [
-                Text(
-                  "Interval Time",
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
-                )
-              ],
-            ),
-            Row(
-              children: [
-                Text(
-                  "Remind me every    ",
-                  style: TextStyle(fontSize: 20),
-                ),
-                DropdownButton(
-                  value: dropdownValue,
-                  items: <String>['One', 'Two', 'Free', 'Four']
-                      .map<DropdownMenuItem<String>>((String value) {
-                    return DropdownMenuItem<String>(
-                      value: value,
-                      child: Text(value),
-                    );
-                  }).toList(),
-                  onChanged: (String newValue) {
-                    setState(() {
-                      dropdownValue = newValue;
-                    });
-                  },
-                )
-              ],
-            ),
-            Row(children: [
-              Text(
-                "Set starting time",
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
-              ),
-            ]),
             FlatButton(
-              onPressed: () {},
-              child: Text("Pick Time"),
+              onPressed: () async {
+                categoryModel.description = _editDescription.text;
+                categoryModel.name = _editMedicineName.text;
+                var result = await categoryService.saveCategory(categoryModel);
+                print(categoryModel);
+                print(result);
+              },
+              child: Text("Add medicine"),
               color: Colors.green,
+            ),
+            FlatButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ListOfCategories()),
+                );
+              },
+              child: Text("List of medicine"),
+              color: Colors.green[300],
             )
           ],
         ));

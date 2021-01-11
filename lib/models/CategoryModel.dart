@@ -1,4 +1,4 @@
-class Category {
+class CategoryModel {
   int id;
   String name;
   String description;

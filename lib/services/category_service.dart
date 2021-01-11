@@ -1,5 +1,5 @@
 import 'package:healthmonitor/Database/repository.dart';
-import 'package:healthmonitor/Models/CategoryModel.dart';
+import 'package:healthmonitor/models/CategoryModel.dart';
 
 class CategoryService {
   Repository _repository;
@@ -9,7 +9,7 @@ class CategoryService {
   }
 
   // Create data
-  saveCategory(Category category) async {
+  saveCategory(CategoryModel category) async {
     return await _repository.insertData('categories', category.categoryMap());
   }
 

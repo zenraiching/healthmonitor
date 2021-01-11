@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:healthmonitor/MedicineMonitor/Categories.dart';
-import 'package:healthmonitor/MedicineMonitor/Medicine.dart';
 
 void main() {
   runApp(MyApp());
