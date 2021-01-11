@@ -1,1 +1,3 @@
-clsas
+class Medicne{
+  
+}
