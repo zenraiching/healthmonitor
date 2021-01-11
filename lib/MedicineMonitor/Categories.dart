@@ -42,15 +42,18 @@ class _CategoriesState extends State<Categories> {
         child: Column(
           children: [
             TextFormField(
+              controller: _editMedicineName,
               decoration: InputDecoration(labelText: "Medicine Name"),
             ),
             TextFormField(
+              controller: _editDescription,
               decoration: InputDecoration(labelText: "Medicine Description"),
             ),
             FlatButton(
               onPressed: () async {
                 categoryModel.description = _editDescription.text;
                 categoryModel.name = _editMedicineName.text;
+                print("TESTING: " + _editMedicineName.text);
                 var result = await categoryService.saveCategory(categoryModel);
                 print(categoryModel);
                 print(result);
@@ -67,7 +70,7 @@ class _CategoriesState extends State<Categories> {
               },
               child: Text("List of medicine"),
               color: Colors.green[300],
-            )
+            ),
           ],
         ));
   }
