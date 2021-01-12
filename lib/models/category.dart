@@ -1,4 +1,4 @@
-class CategoryModel {
+class Category {
   int id;
   String name;
   String description;
@@ -8,6 +8,7 @@ class CategoryModel {
     mapping['id'] = id;
     mapping['name'] = name;
     mapping['description'] = description;
+
     return mapping;
   }
 }
