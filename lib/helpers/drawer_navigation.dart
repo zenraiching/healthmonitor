@@ -52,6 +52,12 @@ class _DrawerNavigatonState extends State<DrawerNavigaton> {
               accountEmail: null,
             ),
             ListTile(
+              leading: Icon(Icons.view_list),
+              title: Text('Categories'),
+              onTap: () => Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => CategoriesScreen())),
+            ),
+            ListTile(
               leading: Icon(Icons.home),
               title: Text('Home'),
               onTap: () => Navigator.of(context)
