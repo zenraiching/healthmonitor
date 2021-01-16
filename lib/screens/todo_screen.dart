@@ -42,19 +42,18 @@ class _TodoScreenState extends State<TodoScreen> {
     });
   }
 
-  DateTime _dateTime = DateTime.now();
+  TimeOfDay _timeOfDay = new TimeOfDay(hour: null, minute: null);
 
   _selectedTodoDate(BuildContext context) async {
-    var _pickedDate = await showDatePicker(
-        context: context,
-        initialDate: _dateTime,
-        firstDate: DateTime(2000),
-        lastDate: DateTime(2100));
+    var _pickedDate = await showTimePicker(
+      context: context,
+      initialTime: TimeOfDay.now(),
+    );
 
     if (_pickedDate != null) {
       setState(() {
-        _dateTime = _pickedDate;
-        _todoDateController.text = DateFormat('yyyy-MM-dd').format(_pickedDate);
+        _timeOfDay = _pickedDate;
+        _todoDateController.text = _timeOfDay.format(context);
       });
     }
   }
@@ -89,8 +88,8 @@ class _TodoScreenState extends State<TodoScreen> {
             TextField(
               controller: _todoDateController,
               decoration: InputDecoration(
-                labelText: 'Date',
-                hintText: 'Pick a Date',
+                labelText: 'Time',
+                hintText: 'Pick a time',
                 prefixIcon: InkWell(
                   onTap: () {
                     _selectedTodoDate(context);

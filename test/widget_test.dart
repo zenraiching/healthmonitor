@@ -8,7 +8,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:healthmonitor/main.dart';
 import 'package:healthmonitor/src/app.dart';
 
 void main() {
