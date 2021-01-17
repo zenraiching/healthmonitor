@@ -59,11 +59,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(0)),
                   child: ListTile(
-                    title: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Text(_todoList[index].title ?? 'No Title')
-                      ],
+                    title: Text(
+                      _todoList[index].title ?? 'No Title',
+                      style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                     subtitle: Text(_todoList[index].category ?? 'No Category'),
                     trailing: Text(_todoList[index].todoDate ?? 'No Date'),
