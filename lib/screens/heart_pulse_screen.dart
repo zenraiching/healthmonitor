@@ -4,14 +4,15 @@ import 'package:flutter/material.dart';
 import 'package:wakelock/wakelock.dart';
 import 'chart.dart';
 
-class HomePage extends StatefulWidget {
+class HeartPulse extends StatefulWidget {
   @override
-  HomePageView createState() {
-    return HomePageView();
+  HeartPulseScreenView createState() {
+    return HeartPulseScreenView();
   }
 }
 
-class HomePageView extends State<HomePage> with SingleTickerProviderStateMixin {
+class HeartPulseScreenView extends State<HeartPulse>
+    with SingleTickerProviderStateMixin {
   bool _toggled = false; // toggle button value
   List<SensorValue> _data = List<SensorValue>(); // array to store the values
   CameraController _controller;

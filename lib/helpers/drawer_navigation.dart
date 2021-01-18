@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:healthmonitor/screens/categories_screen.dart';
 import 'package:healthmonitor/screens/home_screen.dart';
 import 'package:healthmonitor/screens/todos_by_category.dart';
+import 'package:healthmonitor/screens/heart_pulse_screen.dart';
 import 'package:healthmonitor/services/category_service.dart';
 
 class DrawerNavigaton extends StatefulWidget {
@@ -70,6 +71,12 @@ class _DrawerNavigatonState extends State<DrawerNavigaton> {
               title: Text('Categories'),
               onTap: () => Navigator.of(context).push(
                   MaterialPageRoute(builder: (context) => CategoriesScreen())),
+            ),
+            ListTile(
+              leading: Icon(Icons.view_list),
+              title: Text('Categories'),
+              onTap: () => Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => HeartPulse())),
             ),
             Divider(),
             Column(
