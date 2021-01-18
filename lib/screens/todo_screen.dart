@@ -94,7 +94,7 @@ class _TodoScreenState extends State<TodoScreen> {
                   onTap: () {
                     _selectedTodoDate(context);
                   },
-                  child: Icon(Icons.calendar_today),
+                  child: Icon(Icons.access_alarms),
                 ),
               ),
             ),
